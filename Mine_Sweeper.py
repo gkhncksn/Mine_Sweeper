@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-
-# Copyright (c) 2016 Akuli
-# ... (lisans kısmı aynı kalır)
-
 import collections
 import functools
 import random
@@ -13,11 +8,7 @@ from PIL import Image, ImageTk
 import os
 import time
 
-# Core
-# ~~~~
-
 class Square:
-
     def __init__(self, opened=False, mine=False, flagged=False):
         self.opened = opened
         self.mine = mine
@@ -28,10 +19,8 @@ class Square:
                 % (type(self).__name__, self.opened,
                    self.mine, self.flagged))
 
-
 class Game:
     """One game that ends in a win or a gameover."""
-
     def __init__(self, width=9, height=9, mines=10):
         self.width = width
         self.height = height
@@ -110,10 +99,6 @@ class Game:
 
     def over(self):
         return self.exploded() or self.win()
-
-
-# Tkinter GUI
-# ~~~~~~~~~~~
 
 class PlayingArea(tk.Canvas):
     SCALE = 20
@@ -352,10 +337,8 @@ class PlayingArea(tk.Canvas):
     def _rightclick(self, coords):
         self.game.toggle_flag(coords)
 
-
 def wikihow_howto():
     webbrowser.open('http://www.wikihow.com/Play-Minesweeper')
-
 
 def about():
     messagebox.showinfo("Mayın Tarlası Hakkında",
@@ -366,7 +349,6 @@ def about():
                         "- Kalan mayın sayacı\n"
                         "- Süre ölçer\n"
                         "- Klasik arayüz")
-
 
 def main():
     root = tk.Tk()
@@ -438,7 +420,6 @@ def main():
     playingarea.new_game('Normal')
 
     root.mainloop()
-
 
 if __name__ == '__main__':
     main()
